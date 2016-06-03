@@ -28,8 +28,8 @@ namespace PetService.Controllers
             {
                 return NotFound();
             }
-
-            return Ok(db.Pets.Where(e => e.PetOwnerId == id));
+            var pets = db.Pets.Where(e => e.PetOwnerId == id);
+            return Ok(pets);
         }
 
         protected override void Dispose(bool disposing)
