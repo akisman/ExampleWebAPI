@@ -15,10 +15,10 @@ namespace PetService.Models
         // Foreign Key
         public int PetOwnerId { get; set; }
         // Navigation property
-        public PetOwner PetOwner { get; set; }
+        //public PetOwner PetOwner { get; set; }
 
         // Foreign Key
         public int? PetWalkerId { get; set; }
-        public PetWalker PetWalker { get; set; }
+        //public PetWalker PetWalker { get; set; }
     }
 }
