@@ -1,5 +1,7 @@
 # WebAPI Example
 
+Example WebAPI using the Entity Framework
+
 ## Notes
 
 * Database is being created using Code First migration
