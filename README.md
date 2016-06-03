@@ -12,20 +12,15 @@ The following endpoints are defined(See below for creating new Pet):
 
 * List of pets by owner ```GET: api/PetOwners/ownerId/Pets```
 
-Is PetWalker approved by PetOwner
-GET: api/PetWalkers/walkerId/ownerId
+* Is PetWalker approved by PetOwner ```GET: api/PetWalkers/walkerId/ownerId```
 
-Get Pet by id
-GET: api/Pets/petId
+* Get Pet by id ```GET: api/Pets/petId```
 
-Create new pet
-POST: api/Pets
+* Create new pet ```POST: api/Pets```
 
-Update an existing pet
-PUT: api/Pets/petId
+* Update an existing pet ```PUT: api/Pets/petId```
 
-Get pets that are under X years old
-GET: api/Pets/Age/X
+* Get pets that are under X years old ```GET: api/Pets/Age/X```
 
 ### Pet JSON
 
