@@ -100,21 +100,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606011805299_Initial.cs" />
-    <Compile Include="Migrations\201606011805299_Initial.Designer.cs">
-      <DependentUpon>201606011805299_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606012033149_nullable walker.cs" />
-    <Compile Include="Migrations\201606012033149_nullable walker.Designer.cs">
-      <DependentUpon>201606012033149_nullable walker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606030530048_m2m.cs" />
-    <Compile Include="Migrations\201606030530048_m2m.Designer.cs">
-      <DependentUpon>201606030530048_m2m.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606030659569_m2m2.cs" />
-    <Compile Include="Migrations\201606030659569_m2m2.Designer.cs">
-      <DependentUpon>201606030659569_m2m2.cs</DependentUpon>
+    <Compile Include="Migrations\201606030910534_Initial.cs" />
+    <Compile Include="Migrations\201606030910534_Initial.Designer.cs">
+      <DependentUpon>201606030910534_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Pet.cs" />
@@ -136,17 +124,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606011805299_Initial.resx">
-      <DependentUpon>201606011805299_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606012033149_nullable walker.resx">
-      <DependentUpon>201606012033149_nullable walker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606030530048_m2m.resx">
-      <DependentUpon>201606030530048_m2m.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606030659569_m2m2.resx">
-      <DependentUpon>201606030659569_m2m2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606030910534_Initial.resx">
+      <DependentUpon>201606030910534_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
