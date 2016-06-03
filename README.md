@@ -10,8 +10,7 @@
 
 The following endpoints are defined(See below for creating new Pet):
 
-List of pets by owner
-GET: api/PetOwners/ownerId/Pets
+* List of pets by owner ```GET: api/PetOwners/ownerId/Pets```
 
 Is PetWalker approved by PetOwner
 GET: api/PetWalkers/walkerId/ownerId
