@@ -40,10 +40,11 @@ namespace PetService.Controllers
             if (result == true)
             {
                 //petOwner.PetWalkers.Contains<PetWalker>(petWalker)
-                response.Content = new StringContent("true", System.Text.Encoding.UTF8, "application/json");
+                
+                response.Content = new StringContent("[{\"IsApproved\": true}]", System.Text.Encoding.UTF8, "application/json");
                 return response;
             }
-            response.Content = new StringContent("false", System.Text.Encoding.UTF8, "application/json");
+            response.Content = new StringContent("[{\"IsApproved\": false}]", System.Text.Encoding.UTF8, "application/json");
             return response;
         }
 
