@@ -7,6 +7,7 @@ Example WebAPI using the Entity Framework
 * Database is being created using Code First migration
 * Works with JSON and XML
 * Uses Convention-based and attribute routing
+* Seed database using ```Update-Database```
 
 ## API 
 
