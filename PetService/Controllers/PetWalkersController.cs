@@ -28,7 +28,8 @@ namespace PetService.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
-            PetOwner petOwner = db.PetOwners.Find(ownerId);
+            var owners = db.PetOwners.Include(w => w.PetWalkers).ToList();
+            var petOwner = owners.Where(s => s.Id == ownerId).FirstOrDefault();
             if (petOwner == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
