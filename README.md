@@ -37,3 +37,40 @@ Proper form for POSTing new pets. PetOwnerId is required.
   "PetWalkerId": 1
 }
 ```
+
+### More Examples
+
+GET /api/Pets/Age/5
+```
+[
+  {
+    "Id": 2,
+    "Name": "Havok",
+    "DateOfBirth": "2014-06-25T00:00:00",
+    "PetOwnerId": 2,
+    "PetWalkerId": 1
+  }
+]
+```
+
+GET /api/PetOwners/2/Pets
+```
+[
+  {
+    "Id": 2,
+    "Name": "Havok",
+    "DateOfBirth": "2014-06-25T00:00:00",
+    "PetOwnerId": 2,
+    "PetWalkerId": 1
+  }
+]
+```
+
+GET /api/PetWalkers/1/2
+```
+[
+  {
+    "IsApproved": true
+  }
+]
+```
