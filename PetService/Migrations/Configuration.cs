@@ -23,13 +23,13 @@ namespace PetService.Migrations
             var walker1 = new PetWalker() { Id = 1, FirstName = "John", LastName = "Walker", PhoneNumber = "123456" };
             var walker2 = new PetWalker() { Id = 2, FirstName = "Jim", LastName = "Walker", PhoneNumber = "123456" };
 
-            //owner1.PetWalkers.Add(walker1);
-
             context.PetOwners.Add(owner1);
             context.PetOwners.Add(owner2);
 
-            //context.PetWalkers.Add(walker1);
+            context.PetWalkers.Add(walker1);
             context.PetWalkers.Add(walker2);
+
+            owner1.PetWalkers.Add(walker1);
 
             context.Pets.AddOrUpdate(x => x.Id,
                 new Pet() { Id = 1, Name = "Havok",  DateOfBirth = new DateTime(2014, 06, 25),  PetOwnerId = 1, PetWalkerId = 1 }
