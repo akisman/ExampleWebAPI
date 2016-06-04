@@ -8,12 +8,13 @@ Example WebAPI using the Entity Framework
 * Works with JSON and XML
 * Uses Convention-based and attribute routing
 * Seed database using ```Update-Database```
+* Uses Repository Pattern (Unit of Work with Dependency Injection via Ninject)
 
 ## API 
 
 The following endpoints are defined(See below for creating new Pet):
 
-* List of pets by owner ```GET: api/PetOwners/ownerId/Pets```
+* List of pets by owner ```GET: api/PetOwners/ownerId```
 
 * Is PetWalker approved by PetOwner ```GET: api/PetWalkers/walkerId/ownerId```
 
@@ -53,7 +54,7 @@ GET /api/Pets/Age/5
 ]
 ```
 
-GET /api/PetOwners/2/Pets
+GET /api/PetOwners/2
 ```
 [
   {

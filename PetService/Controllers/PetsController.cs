@@ -1,29 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
+using PetService.Core;
 using System.Web.Http.Description;
-using PetService.Models;
+using PetService.Core.Domain;
 
 namespace PetService.Controllers
 {
     public class PetsController : ApiController
     {
-        private PetServiceContext db = new PetServiceContext();
+        private readonly IUnitOfWork _unitOfWork;
+
+        public PetsController(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
 
         // Get pets by age
         // GET: api/Pets/Age/5
-        [Route("api/Pets/Age/{id}")]
+        [Route("api/Pets/Age/{age}")]
         [HttpGet] 
-        public async Task<IHttpActionResult> GetPetsByAge(int id)
+        public async Task<IHttpActionResult> GetPetsByAge(int age)
         {
-            return Ok(from e in db.Pets where DateTime.Now.Year - e.DateOfBirth.Value.Year < id select e);
+            return Ok(_unitOfWork.Pets.GetPetsByAge(age));
         }
 
         // Get Pet by id
@@ -31,7 +29,7 @@ namespace PetService.Controllers
         [ResponseType(typeof(Pet))]
         public async Task<IHttpActionResult> GetPet(int id)
         {
-            Pet pet = await db.Pets.FindAsync(id);
+            var pet = _unitOfWork.Pets.Get(id);
             if (pet == null)
             {
                 return NotFound();
@@ -41,6 +39,7 @@ namespace PetService.Controllers
         }
 
         // Update existing pet
+        // TODO: Update using only the path id
         // PUT: api/Pets/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutPet(int id, Pet pet)
@@ -55,25 +54,11 @@ namespace PetService.Controllers
                 return BadRequest();
             }
 
-            db.Entry(pet).State = EntityState.Modified;
+            _unitOfWork.Pets.Update(pet);
+            _unitOfWork.Complete();
 
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PetExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            //return StatusCode(HttpStatusCode.NoContent);
+            return CreatedAtRoute("DefaultApi", new { id = pet.Id }, pet);
         }
 
         // Create new pet
@@ -86,24 +71,10 @@ namespace PetService.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Pets.Add(pet);
-            await db.SaveChangesAsync();
+            _unitOfWork.Pets.Add(pet);
+            _unitOfWork.Complete();
 
             return CreatedAtRoute("DefaultApi", new { id = pet.Id }, pet);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool PetExists(int id)
-        {
-            return db.Pets.Count(e => e.Id == id) > 0;
         }
 
     }

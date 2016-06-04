@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace PetService.Models
+namespace PetService.Persistence
 {
     public class PetServiceContext : DbContext
     {
@@ -19,10 +19,10 @@ namespace PetService.Models
         {
         }
 
-        public System.Data.Entity.DbSet<PetService.Models.Pet> Pets { get; set; }
+        public System.Data.Entity.DbSet<PetService.Core.Domain.Pet> Pets { get; set; }
 
-        public System.Data.Entity.DbSet<PetService.Models.PetOwner> PetOwners { get; set; }
+        public System.Data.Entity.DbSet<PetService.Core.Domain.PetOwner> PetOwners { get; set; }
 
-        public System.Data.Entity.DbSet<PetService.Models.PetWalker> PetWalkers { get; set; }
+        public System.Data.Entity.DbSet<PetService.Core.Domain.PetWalker> PetWalkers { get; set; }
     }
 }

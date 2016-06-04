@@ -1,12 +1,10 @@
 namespace PetService.Migrations
 {
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
-    using PetService.Models;
     using System.Collections.Generic;
-    internal sealed class Configuration : DbMigrationsConfiguration<PetService.Models.PetServiceContext>
+    using Core.Domain;
+    internal sealed class Configuration : DbMigrationsConfiguration<PetService.Persistence.PetServiceContext>
     {
         public Configuration()
         {
@@ -14,7 +12,7 @@ namespace PetService.Migrations
         }
 
 
-        protected override void Seed(PetService.Models.PetServiceContext context)
+        protected override void Seed(PetService.Persistence.PetServiceContext context)
         {
 
             var owner1 = new PetOwner() { Id = 1, FirstName = "Akis", LastName = "Manolis", Email = "akis@petservice.com", PetWalkers = new List<PetWalker>() };
