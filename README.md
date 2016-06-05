@@ -8,7 +8,7 @@ Example WebAPI using the Entity Framework
 * Works with JSON and XML
 * Uses Convention-based and attribute routing
 * Seed database using ```Update-Database```
-* Uses Repository Pattern (Unit of Work with Dependency Injection via Ninject)
+* Uses Repository Pattern & Unit of Work(Dependency Injection via Ninject)
 * Some Unit of Work layer Unit Tests (Using Moq)
 
 ## API 
