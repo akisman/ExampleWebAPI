@@ -4,10 +4,9 @@ Example WebAPI using the Entity Framework
 
 ## Notes
 
-* Database is being created using Code First migration
+* Database is being created using Code First migration (Seed using ```Update-Database```)
 * Works with JSON and XML
 * Uses Convention-based and attribute routing
-* Seed database using ```Update-Database```
 * Uses Repository Pattern & Unit of Work(Dependency Injection via Ninject)
 * Some Unit of Work layer Unit Tests (Using Moq)
 
